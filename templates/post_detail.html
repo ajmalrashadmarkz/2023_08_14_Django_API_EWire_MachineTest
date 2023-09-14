@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="article-entry">
+  <h2>{{ object.title }}</h2>
+  <p>by {{ object.user }} | {{ object.created_date }}</p>
+  <p>{% for tag in post.tags.all %}
+                                    <a href="#">
+                                        #{{ tag }}
+                                    </a>
+                                    {% endfor %}
+  <p>{{ object.description }}</p>
+</div>
+<div>
+  <p>
+    <a href="#">Delete</a>
+  </p>
+  <p>Back to <a href="{% url 'post_list' %}">All Posts</a>.</p>
+</div>
+{% endblock content %}

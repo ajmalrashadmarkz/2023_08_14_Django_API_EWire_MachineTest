@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        Hi {{ user.username }}! 
+        <p><a href="{% url 'logout' %}">Log Out</a></p>
+        <p><a class="btn btn-primary btn-lg" href="{% url 'post_list' %}" role="button">View all articles</a></p>
+    {% else %}
+        <div class="card">
+        <div class="card-body">
+            <h1>About & key features</h1>
+            <li>User signup
+                <ul>
+                    <li></li>
+                    <li>Green tea</li>
+                </ul>
+            </li>
+            <li>Users can create accounts, log in, and manage their profile information. Authentication ensures that only authorized users can create and edit blog content.</li>
+            <li>You are not logged in- Please Logged In</li>
+        <a href="{% url 'login' %}">Log In</a> |
+        <a href="{% url 'signup' %}">Sign Up</a>
+        </div>
+        </div>
+    {% endif %}
+{% endblock content %}
